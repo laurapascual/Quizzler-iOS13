@@ -40,9 +40,9 @@ class ViewController: UIViewController {
         let actualAnswer = actualQuestion.answer
         
         if userAnswer == actualAnswer {
-            print("Right!")
+            sender.backgroundColor = UIColor.green
         } else {
-            print("False!")
+            sender.backgroundColor = UIColor.red
         }
         
         if questionNumber + 1 < quiz.count {
