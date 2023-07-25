@@ -34,7 +34,7 @@ class ViewController: UIViewController {
         updateUI()
     }
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        
+
         let userAnswer = sender.currentTitle
         let actualQuestion = quiz[questionNumber]
         let actualAnswer = actualQuestion.answer
@@ -50,12 +50,13 @@ class ViewController: UIViewController {
         } else {
             questionNumber = 0
         }
-        
-        updateUI()
+    Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
     }
     
-    func updateUI() {
+    @objc func updateUI() {
         questionLabel.text = quiz[questionNumber].text
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
     
 }
