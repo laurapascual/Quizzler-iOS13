@@ -32,9 +32,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
+        progressBar.progress = 0.0
     }
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-
+        
         let userAnswer = sender.currentTitle
         let actualQuestion = quiz[questionNumber]
         let actualAnswer = actualQuestion.answer
@@ -57,6 +58,7 @@ class ViewController: UIViewController {
         questionLabel.text = quiz[questionNumber].text
         trueButton.backgroundColor = UIColor.clear
         falseButton.backgroundColor = UIColor.clear
+        progressBar.progress = Float(questionNumber + 1) / Float(quiz.count)
     }
     
 }
